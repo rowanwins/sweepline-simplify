@@ -1,5 +1,4 @@
-dist/sweeplineSimplify.js
-dist/sweeplineSimplify.min.js
+dist/
 .DS_Store
 node_modules/
 npm-debug.log*

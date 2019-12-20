@@ -17,8 +17,8 @@ const options = {
 }
 
 // Basic example
-// Sweepline simplify - x 155,206 ops/sec ±2.03% (95 runs sampled)
-// simplepolygon - x 29,294 ops/sec ±0.39% (64 runs sampled)
+// Sweepline simplify x 76,196 ops/sec ±2.28% (85 runs sampled)
+// SimplePolygon x 29,164 ops/sec ±1.10% (85 runs sampled)
 // - Fastest is Sweepline simplify
 const suite = new Benchmark.Suite('Basic example', options)
 suite
@@ -31,7 +31,7 @@ suite
     .run()
 
 // Warsaw example
-// Sweepline simplify - x 26 ops/sec ±2.03% (95 runs sampled)
+// Sweepline simplify x 20.27 ops/sec ±4.42% (38 runs sampled)
 // simplepolygon - x n/a
 // - Fastest is Sweepline simplify
 const suite2 = new Benchmark.Suite('Warsaw example', options)
