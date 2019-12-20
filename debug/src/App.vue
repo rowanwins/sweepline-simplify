@@ -34,30 +34,24 @@ export default {
 
     map.addControl(new L.Coordinates());
 
-    // L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    //   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    //   subdomains: 'abcd',
-    //   maxZoom: 19
-    // }).addTo(map)
 
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
 
 
    const r = isSimple(trouble)
 
-  const mainF = r.simpleContours
-   L.geoJSON(r.simpleContours, {
+   const simple = L.geoJSON(r.simpleContours, {
     style: function (f) {
       return {
         color: getRandomColor(),
-        fillOpacity: f.properties.netWinding === 1 ? 0.6 : 0,
+        fillOpacity: 1,
         weight: f.properties.netWinding === 1 ? 3 : 1
       };
     }
@@ -66,6 +60,14 @@ function getRandomColor() {
     return JSON.stringify(layer.feature.properties);
   }).addTo(map)
 
+
+var overlays = {
+    "Original": layer,
+    "Simplified": simple
+};
+L.control.layers({}, overlays, {
+  collapsed: false
+}).addTo(map);
 
 
   }
